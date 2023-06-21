@@ -21,8 +21,9 @@ class _listState extends State<list> {
       body: ListView.separated(
           itemBuilder: (context, index) {
             return ListTile(
+
               leading: Image.asset(Data.main_image[widget.index]),
-              title: Text(Data.one[index],maxLines: 1,style: TextStyle(fontSize: 36)),
+              title: Text(Data.one[index],maxLines: 1,style: TextStyle(fontSize:24)),
             );
           },
           separatorBuilder:(context, index) {

@@ -33,7 +33,7 @@ class _HomepageState extends State<Homepage> {
                   return list(index);
                 },));
               },
-                minLeadingWidth: 1000,
+                minVerticalPadding: 30,
                 leading:InkWell(onTap: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
                     return img(index);
