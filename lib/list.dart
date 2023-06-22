@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:love_shayari/Data.dart';
 import 'package:love_shayari/main.dart';
+import 'package:love_shayari/view.dart';
 
 class list extends StatefulWidget {
   int index;
@@ -55,8 +56,12 @@ class _listState extends State<list> {
       ], ),
       body: ListView.separated(
         itemBuilder: (context, index) {
-            return ListTile(
-              minVerticalPadding: 25,
+            return ListTile(onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return view(widget.index,index);
+              },));
+            },
+              minVerticalPadding: 10,
               tileColor: Colors.pink,
               leading: InkWell(onTap:() {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -64,7 +69,7 @@ class _listState extends State<list> {
                 },));
               }, child: Image.asset(Data.main_image[widget.index])),
               title: Text(shayari[index],maxLines: 2,style: TextStyle(fontSize:20)),
-              trailing: Icon(Icons.arrow_forward_ios_sharp),
+              trailing: Icon(Icons.arrow_forward_ios_sharp,color: Colors.white,size: 20),
             );
           },
         separatorBuilder:(context, index) {
