@@ -630,5 +630,4 @@ class Data {
     Colors.brown,
     Colors.lime,
   ];
-
 }

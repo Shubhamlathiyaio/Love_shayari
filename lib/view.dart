@@ -18,15 +18,26 @@ int index;
 class _viewState extends State<view> {
   @override
   List shayari = [];
-  bool color=false;
-  List co=Data.co;
+  bool colortf=false;
+  List<Color> co=Data.co;
   int R=0;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+  }
 
   rando()
   {
-    R=Random().nextInt(Data.co.length-1);
+    R=Random().nextInt(5);
+    co.shuffle();
+    co=co.sublist(0,2);
+    return co;
   }
   Widget build(BuildContext context) {
+    // List<Color> co=rando();
     return Scaffold(
         appBar: AppBar(backgroundColor: Colors.green,title: Text("Love Shayari",style: TextStyle(fontSize: 24),),),
         body: Column(
@@ -43,15 +54,15 @@ class _viewState extends State<view> {
                 }, icon: Icon(Icons.color_lens,size: 40,)),
                 Text("${widget.index+1} / ${widget.a.length}",style: TextStyle(fontSize: 24)),
                 IconButton(onPressed: () {
-                  color=true;
-                  rando();
+                  colortf=true;
+                  co=rando();
                   setState(() {});
                 }, icon: Icon(Icons.refresh_rounded,size: 40,)),
               ],
             ),
             SizedBox(height: 30,),
             Expanded(child: Container(padding: EdgeInsets.all(20),alignment: Alignment.center,decoration: BoxDecoration(
-              gradient: LinearGradient(colors: (color ? [co[R],co[R+1],co[R+2]] : [Colors.pink,Colors.pink]))
+              gradient: LinearGradient(colors: colortf ? co : [Colors.pink,Colors.yellow])
             ),
                 child: PageView.builder(
                   onPageChanged: (value) {
