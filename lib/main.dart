@@ -19,10 +19,7 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Colors.green,title: Text("Love Shayari",style: TextStyle(fontSize: 24),),actions: [
-        Icon(Icons.share),
-         Icon(Icons.more_vert)
-      ], ),
+      appBar: AppBar(backgroundColor: Colors.green,title: Text("Love Shayari",style: TextStyle(fontSize: 24),),actions: [], ),
       body: ListView.builder(
         itemCount: Data.title.length,
           itemBuilder:(context, index) {
