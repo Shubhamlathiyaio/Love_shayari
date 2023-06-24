@@ -4,6 +4,7 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:love_shayari/Data.dart';
+import 'package:love_shayari/edit.dart';
 
 class view extends StatefulWidget {
   List a;
@@ -40,7 +41,7 @@ class _viewState extends State<view> {
 
   Widget build(BuildContext context) {
     double size=(MediaQuery.of(context).size.height)-(MediaQuery.of(context).padding.top)-(kToolbarHeight)-10;
-
+    int ind;
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.green,
@@ -156,9 +157,13 @@ class _viewState extends State<view> {
                         )),
                     IconButton(
                         onPressed: () {
-                          widget.index > 0 ? widget.index-- : widget.index;
-                          setState(() {});
+                          Navigator.push(context, MaterialPageRoute(builder: (context) {
+                              Text("${widget.a[widget.index]}");
+                            var index;
+                            return edit(index);
 
+                          },));
+                          setState(() {});
                         },
                         icon: Icon(
                           Icons.edit,
